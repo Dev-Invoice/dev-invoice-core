@@ -1,0 +1,47 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Set base directory
+RewriteBase /
+
+# Prevent directory listing
+Options -Indexes
+
+# Handle trailing slashes
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# Prevent direct access to PHP files in includes directory
+RewriteRule ^includes/ - [F,L]
+
+# Prevent direct access to config directory
+RewriteRule ^config/ - [F,L]
+
+# Protect .htaccess file
+<Files .htaccess>
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Set error documents
+ErrorDocument 404 /404.php
+ErrorDocument 403 /403.php
+
+# PHP settings
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# Force HTTPS (uncomment when SSL is available)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Add security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data:;"
+</IfModule>

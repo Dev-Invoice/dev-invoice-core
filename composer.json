@@ -1,0 +1,22 @@
+{
+    "name": "taskbill/project-management",
+    "description": "A comprehensive project management and invoicing system",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "phpmailer/phpmailer": "^6.8",
+        "mpdf/mpdf": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "TaskBill\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Task Bill Team",
+            "email": "info@taskbill.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
