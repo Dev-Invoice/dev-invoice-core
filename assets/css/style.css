@@ -1,0 +1,387 @@
+/* Task Bill Custom CSS */
+
+:root {
+    --primary-color: #0f172a;
+    --secondary-color: #f1f5f9;
+    --border-color: #e2e8f0;
+    --background-color: #fff;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --info-color: #3b82f6;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --transition-speed: 0.3s;
+}
+
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f8fafc;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    border-color: var(--border-color);
+}
+
+.row {flex-direction: row;}
+.main-content{flex: 1;}
+aside.sidebar-content {border-right: 1px solid var(--border-color);width: 100%;max-width: 255px;}
+.sidebar-head {border-bottom: 1px solid var(--border-color); padding: 24px;}
+.sidebar-head .site-name {font-size: 1.25rem; line-height: 1.75rem; font-weight: 700; margin: unset; color: var(--primary-color);}
+aside.sidebar-content #menu {padding: 16px;}
+aside.sidebar-content .nav-pills .nav-link.active, .nav-pills .show>.nav-link {background-color: var(--primary-color); padding: 8px 16px !important; gap: 6px;}
+.nav-pills .nav-link {padding: 8px 16px !important; color: var(--primary-color) !important;}
+.nav-pills .nav-link.active span, .nav-pills .nav-link.active .fs-4 {color: var(--background-color) !important;}
+.fs-4 {font-size: 1.25rem !important;}
+
+/* Navbar */
+/*.navbar {*/
+/*    background-color: var(--primary-color) !important;*/
+/*    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.navbar-brand {*/
+/*    font-weight: 600;*/
+/*}*/
+
+/* Sidebar */
+/*.sidebar {*/
+/*    min-height: calc(100vh - 56px);*/
+/*}*/
+
+/* Cards */
+.card {
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: rgba(241, 245, 249, 0.3);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+}
+
+.card-header h5 {
+    color: var(--primary-color);
+}
+
+.card-body label {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+
+
+.password-strength-meter {
+    width: 100%;
+    height: 5px;
+    margin-top: 5px;
+    border-radius: 3px !important;
+}
+
+
+
+/* Dashboard Stats Cards */
+.stat-card {
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-card.clients {
+    background-color: var(--info-color);
+}
+
+.stat-card.tasks {
+    background-color: var(--warning-color);
+}
+
+.stat-card.invoices {
+    background-color: var(--success-color);
+}
+
+.stat-card.overdue {
+    background-color: var(--danger-color);
+}
+
+.stat-card i {
+    font-size: 3rem;
+    opacity: 0.4;
+}
+
+.stat-card .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.stat-card .stat-label {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: rgba(15, 23, 42, 0.9);
+    border-color: rgba(15, 23, 42, 0.9);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Forms */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(15, 23, 42, 0.25);
+}
+
+/* Tables */
+.table-hover tbody tr:hover {
+    background-color: rgba(241, 245, 249, 0.5);
+}
+
+/* Status badges */
+.badge.pending {
+    background-color: var(--warning-color);
+}
+
+.badge.in-progress {
+    background-color: var(--info-color);
+}
+
+.badge.completed {
+    background-color: var(--success-color);
+}
+
+.badge.unpaid {
+    background-color: var(--warning-color);
+}
+
+.badge.paid {
+    background-color: var(--success-color);
+}
+
+.badge.overdue {
+    background-color: var(--danger-color);
+}
+
+/* Priority colors */
+.priority-high {
+    color: var(--danger-color);
+}
+
+.priority-medium {
+    color: var(--warning-color);
+}
+
+.priority-low {
+    color: var(--info-color);
+}
+
+/* Authentication pages */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8fafc;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.auth-logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-logo img {
+    height: 60px;
+}
+
+/* Verification code input */
+.verification-code {
+    display: flex;
+    gap: 10px;
+    margin: 2rem 0;
+    justify-content: center;
+}
+
+.verification-code input {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.verification-code input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(15, 23, 42, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .stat-card .stat-value {
+        font-size: 1.8rem;
+    }
+    
+    .stat-card i {
+        font-size: 2rem;
+    }
+    
+    .auth-card {
+        margin: 1rem;
+    }
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
+/* Invoice preview */
+.invoice-preview {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.invoice-company {
+    margin-bottom: 20px;
+}
+
+.invoice-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.invoice-details {
+    margin-bottom: 30px;
+}
+
+.invoice-details-table {
+    width: 100%;
+}
+
+.invoice-details-table td {
+    padding: 8px 0;
+}
+
+.invoice-items {
+    margin-bottom: 30px;
+}
+
+.invoice-total {
+    width: 300px;
+    margin-left: auto;
+    margin-bottom: 30px;
+}
+
+.invoice-total table {
+    width: 100%;
+}
+
+.invoice-total-row td {
+    padding: 8px 0;
+}
+
+.invoice-total-label {
+    text-align: right;
+    font-weight: 600;
+}
+
+.invoice-total-value {
+    text-align: right;
+}
+
+.invoice-total-final {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.invoice-notes {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* Profile page */
+.profile-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.profile-header h1 {
+    margin-bottom: 0;
+}
+
+.profile-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profile-info-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 15px;
+}
+
+.profile-info-label {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 5px;
+}
+
+.profile-info-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
